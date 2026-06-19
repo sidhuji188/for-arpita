@@ -14,41 +14,54 @@ font-family:'Segoe UI',sans-serif;
 }
 
 body{
-height:100vh;
+min-height:100vh;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4,#ffd1ff);
 display:flex;
 justify-content:center;
 align-items:center;
-background:linear-gradient(135deg,#ffd1dc,#ffe6f0);
 overflow:hidden;
+position:relative;
 }
 
-.container{
+.card{
+width:90%;
+max-width:750px;
+padding:35px;
+border-radius:30px;
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(18px);
+box-shadow:0 10px 40px rgba(0,0,0,0.15);
 text-align:center;
-max-width:600px;
-padding:20px;
 z-index:2;
 }
 
 h1{
-font-size:2.2rem;
-color:#ff4081;
-margin-bottom:20px;
+font-size:2.8rem;
+color:#ff2e79;
+margin-bottom:15px;
 }
 
-p{
-font-size:1.1rem;
-color:#555;
-margin-bottom:20px;
-line-height:1.6;
+.subtitle{
+font-size:1.2rem;
+color:#444;
+line-height:1.8;
+margin-bottom:25px;
 }
 
-img{
+.photo{
 width:280px;
 height:350px;
-object-fit:cover;
 border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-margin-bottom:20px;
+object-fit:cover;
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+margin-bottom:25px;
+}
+
+.question{
+font-size:2rem;
+font-weight:bold;
+color:#ff2e79;
+margin-bottom:30px;
 }
 
 .buttons{
@@ -62,49 +75,57 @@ font-size:1.2rem;
 border:none;
 border-radius:50px;
 cursor:pointer;
-transition:.3s;
+transition:0.3s;
 }
 
-#yes{
-background:#ff4081;
+#yesBtn{
+background:#ff2e79;
 color:white;
-margin-right:15px;
+box-shadow:0 8px 20px rgba(255,46,121,.3);
 }
 
-#yes:hover{
+#yesBtn:hover{
 transform:scale(1.08);
 }
 
-#no{
+#noBtn{
 background:white;
 color:#333;
 position:absolute;
+margin-left:20px;
 }
 
-.popup{
+.success{
 display:none;
 position:fixed;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
 background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 0 30px rgba(0,0,0,0.2);
-text-align:center;
+padding:40px;
+border-radius:25px;
+box-shadow:0 10px 40px rgba(0,0,0,.2);
 z-index:999;
+width:90%;
+max-width:500px;
+text-align:center;
 }
 
-.popup h2{
-color:#ff4081;
-margin-bottom:10px;
+.success h2{
+color:#ff2e79;
+margin-bottom:15px;
 }
 
-.heart{
+.success p{
+font-size:1.1rem;
+line-height:1.7;
+}
+
+.hearts{
 position:absolute;
 font-size:24px;
-animation:float 6s linear infinite;
-opacity:.8;
+animation:float 7s linear infinite;
+opacity:.7;
 }
 
 @keyframes float{
@@ -117,71 +138,131 @@ transform:translateY(-120px);
 opacity:1;
 }
 }
+
+.footer{
+margin-top:25px;
+font-style:italic;
+color:#555;
+}
+
+@media(max-width:600px){
+
+h1{
+font-size:2rem;
+}
+
+.question{
+font-size:1.5rem;
+}
+
+.photo{
+width:220px;
+height:280px;
+}
+}
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="card">
 
-<h1>Arpita, Will You Be My Girlfriend? ❤️</h1>
+<h1>Arpita ❤️</h1>
 
-<p>
-Every moment with you makes me smile.<br>
-You make ordinary days feel special.<br>
-Today I want to ask you something from my heart... ❤️
+<p class="subtitle">
+From the moment you came into my life,
+you made ordinary days feel special.
+
+Your smile brightens my darkest moments,
+and your presence makes everything better.
+
+Today, I want to ask you something from my heart...
 </p>
 
-<!-- Replace photo.jpg with your uploaded photo -->
-<img src="photo.jpg" alt="Our Memory">
+<!-- Replace photo.jpg with your image -->
+<img src="photo.jpg" class="photo" alt="Memory">
+
+<div class="question">
+Will You Be My Girlfriend? 💖
+</div>
 
 <div class="buttons">
-<button id="yes" onclick="showLove()">Yes 💖</button>
-<button id="no">No 🙈</button>
+<button id="yesBtn" onclick="showSuccess()">Yes 💕</button>
+<button id="noBtn">No 🙈</button>
+</div>
+
+<div class="footer">
+"You are my today and all of my tomorrows." ❤️
 </div>
 
 </div>
 
-<div class="popup" id="popup">
+<div class="success" id="successBox">
 <h2>🎉 Yay! You Said YES! 🎉</h2>
+
 <p>
 You just made me the happiest person alive ❤️<br><br>
-I promise to create beautiful memories with you.
+
+Thank you for being part of my life.
+I promise to cherish every moment we create together.
+💖
 </p>
+
+<br>
+
+<h3>❤️ Forever Starts Here ❤️</h3>
 </div>
 
 <script>
 
-const noBtn = document.getElementById("no");
+const noBtn=document.getElementById("noBtn");
 
-noBtn.addEventListener("mouseover", () => {
-const x = Math.random() * (window.innerWidth - 150);
-const y = Math.random() * (window.innerHeight - 100);
+function moveButton(){
 
-noBtn.style.left = `${x}px`;
-noBtn.style.top = `${y}px`;
-});
+const maxX=window.innerWidth-150;
+const maxY=window.innerHeight-100;
 
-function showLove(){
-document.getElementById("popup").style.display="block";
+const randomX=Math.random()*maxX;
+const randomY=Math.random()*maxY;
+
+noBtn.style.left=randomX+"px";
+noBtn.style.top=randomY+"px";
+}
+
+noBtn.addEventListener("mouseover",moveButton);
+noBtn.addEventListener("click",moveButton);
+
+function showSuccess(){
+
+document.getElementById("successBox").style.display="block";
+
+for(let i=0;i<100;i++){
+createHeart();
+}
 }
 
 function createHeart(){
+
 const heart=document.createElement("div");
-heart.classList.add("heart");
-heart.innerHTML="❤️";
+
+heart.classList.add("hearts");
+
+heart.innerHTML=[
+"❤️","💖","💕","💗","💘"
+][Math.floor(Math.random()*5)];
 
 heart.style.left=Math.random()*100+"vw";
-heart.style.animationDuration=(Math.random()*3+3)+"s";
+heart.style.fontSize=(20+Math.random()*25)+"px";
+heart.style.animationDuration=(4+Math.random()*4)+"s";
 
 document.body.appendChild(heart);
 
 setTimeout(()=>{
 heart.remove();
-},6000);
+},8000);
 }
 
-setInterval(createHeart,300);
+setInterval(createHeart,400);
 
 </script>
 
