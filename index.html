@@ -1,70 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Arpita ❤️</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
 body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:linear-gradient(to bottom,#ffd6e7,#fff);
-    text-align:center;
-    overflow:hidden;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ffd1dc,#ffe6f0);
+overflow:hidden;
 }
 
 .container{
-    margin-top:80px;
+text-align:center;
+max-width:600px;
+padding:20px;
+z-index:2;
 }
 
 h1{
-    color:#ff4081;
+font-size:2.2rem;
+color:#ff4081;
+margin-bottom:20px;
+}
+
+p{
+font-size:1.1rem;
+color:#555;
+margin-bottom:20px;
+line-height:1.6;
 }
 
 img{
-    width:220px;
-    border-radius:15px;
-    margin-bottom:20px;
+width:280px;
+height:350px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+margin-bottom:20px;
+}
+
+.buttons{
+position:relative;
+height:120px;
 }
 
 button{
-    padding:15px 35px;
-    font-size:20px;
-    border:none;
-    border-radius:12px;
-    cursor:pointer;
-    margin:10px;
+padding:15px 35px;
+font-size:1.2rem;
+border:none;
+border-radius:50px;
+cursor:pointer;
+transition:.3s;
 }
 
 #yes{
-    background:#ff4081;
-    color:white;
+background:#ff4081;
+color:white;
+margin-right:15px;
+}
+
+#yes:hover{
+transform:scale(1.08);
 }
 
 #no{
-    background:#eee;
+background:white;
+color:#333;
+position:absolute;
 }
 
-#result{
-    display:none;
-    margin-top:30px;
+.popup{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 0 30px rgba(0,0,0,0.2);
+text-align:center;
+z-index:999;
 }
 
-.hearts{
-    position:fixed;
-    color:red;
-    font-size:25px;
-    animation:float 4s linear infinite;
+.popup h2{
+color:#ff4081;
+margin-bottom:10px;
+}
+
+.heart{
+position:absolute;
+font-size:24px;
+animation:float 6s linear infinite;
+opacity:.8;
 }
 
 @keyframes float{
-    from{
-        transform:translateY(100vh);
-    }
-    to{
-        transform:translateY(-100px);
-    }
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+100%{
+transform:translateY(-120px);
+opacity:1;
+}
 }
 </style>
 </head>
@@ -75,50 +126,62 @@ button{
 
 <h1>Arpita, Will You Be My Girlfriend? ❤️</h1>
 
-<img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600" alt="love">
+<p>
+Every moment with you makes me smile.<br>
+You make ordinary days feel special.<br>
+Today I want to ask you something from my heart... ❤️
+</p>
 
-<br>
+<!-- Replace photo.jpg with your uploaded photo -->
+<img src="photo.jpg" alt="Our Memory">
 
-<button id="yes" onclick="yesClicked()">Yes ❤️</button>
-<button id="no" onmouseover="moveNo()">No 🙈</button>
-
-<div id="result">
-    <h2>🎉 Yay! You Said YES! 🎉</h2>
-    <p>You made me the happiest person alive ❤️</p>
+<div class="buttons">
+<button id="yes" onclick="showLove()">Yes 💖</button>
+<button id="no">No 🙈</button>
 </div>
 
+</div>
+
+<div class="popup" id="popup">
+<h2>🎉 Yay! You Said YES! 🎉</h2>
+<p>
+You just made me the happiest person alive ❤️<br><br>
+I promise to create beautiful memories with you.
+</p>
 </div>
 
 <script>
 
-function moveNo(){
-    let btn=document.getElementById("no");
+const noBtn = document.getElementById("no");
 
-    let x=Math.random()*(window.innerWidth-150);
-    let y=Math.random()*(window.innerHeight-100);
+noBtn.addEventListener("mouseover", () => {
+const x = Math.random() * (window.innerWidth - 150);
+const y = Math.random() * (window.innerHeight - 100);
 
-    btn.style.position="absolute";
-    btn.style.left=x+"px";
-    btn.style.top=y+"px";
+noBtn.style.left = `${x}px`;
+noBtn.style.top = `${y}px`;
+});
+
+function showLove(){
+document.getElementById("popup").style.display="block";
 }
 
-function yesClicked(){
-    document.getElementById("result").style.display="block";
+function createHeart(){
+const heart=document.createElement("div");
+heart.classList.add("heart");
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+3)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},6000);
 }
 
-setInterval(()=>{
-    let heart=document.createElement("div");
-    heart.innerHTML="❤️";
-    heart.className="hearts";
-    heart.style.left=Math.random()*100+"vw";
-
-    document.body.appendChild(heart);
-
-    setTimeout(()=>{
-        heart.remove();
-    },4000);
-
-},500);
+setInterval(createHeart,300);
 
 </script>
 
