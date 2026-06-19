@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,83 +6,88 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Arpita ❤️</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
-min-height:100vh;
-background:linear-gradient(135deg,#ff9a9e,#fad0c4,#ffd1ff);
+overflow:hidden;
+background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+height:100vh;
+}
+
+.screen{
+position:absolute;
+width:100%;
+height:100%;
 display:flex;
 justify-content:center;
 align-items:center;
-overflow:hidden;
-position:relative;
+padding:20px;
+transition:1s ease;
 }
 
 .card{
 width:90%;
-max-width:750px;
-padding:35px;
-border-radius:30px;
+max-width:800px;
 background:rgba(255,255,255,0.18);
 backdrop-filter:blur(18px);
-box-shadow:0 10px 40px rgba(0,0,0,0.15);
+padding:40px;
+border-radius:30px;
+box-shadow:0 10px 40px rgba(0,0,0,.15);
 text-align:center;
-z-index:2;
 }
 
 h1{
-font-size:2.8rem;
-color:#ff2e79;
+color:#ff2d75;
 margin-bottom:15px;
+font-size:2.5rem;
 }
 
-.subtitle{
-font-size:1.2rem;
+h2{
+color:#ff2d75;
+margin-top:15px;
+}
+
+p{
+line-height:1.9;
 color:#444;
-line-height:1.8;
-margin-bottom:25px;
+font-size:1.05rem;
 }
 
-.photo{
+.hero-gif{
 width:280px;
-height:350px;
 border-radius:20px;
-object-fit:cover;
-box-shadow:0 10px 25px rgba(0,0,0,.2);
-margin-bottom:25px;
-}
-
-.question{
-font-size:2rem;
-font-weight:bold;
-color:#ff2e79;
-margin-bottom:30px;
+margin:20px 0;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
 }
 
 .buttons{
+margin-top:30px;
 position:relative;
-height:120px;
+height:90px;
 }
 
 button{
-padding:15px 35px;
-font-size:1.2rem;
 border:none;
+padding:15px 35px;
+font-size:18px;
 border-radius:50px;
 cursor:pointer;
-transition:0.3s;
+transition:.3s;
 }
 
 #yesBtn{
-background:#ff2e79;
+background:#ff2d75;
 color:white;
-box-shadow:0 8px 20px rgba(255,46,121,.3);
+box-shadow:0 8px 20px rgba(255,45,117,.35);
 }
 
 #yesBtn:hover{
@@ -90,181 +96,229 @@ transform:scale(1.08);
 
 #noBtn{
 background:white;
-color:#333;
+color:#444;
 position:absolute;
-margin-left:20px;
+margin-left:15px;
 }
 
-.success{
-display:none;
+.quote{
+margin-top:20px;
+font-style:italic;
+color:#666;
+}
+
+.hidden{
+opacity:0;
+pointer-events:none;
+transform:scale(.9);
+}
+
+.gallery{
+display:flex;
+gap:15px;
+justify-content:center;
+flex-wrap:wrap;
+margin-top:25px;
+}
+
+.gallery img{
+width:180px;
+height:220px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.heart{
 position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-background:white;
-padding:40px;
-border-radius:25px;
-box-shadow:0 10px 40px rgba(0,0,0,.2);
-z-index:999;
-width:90%;
-max-width:500px;
-text-align:center;
+bottom:-30px;
+font-size:25px;
+animation:floatUp linear forwards;
+pointer-events:none;
 }
 
-.success h2{
-color:#ff2e79;
-margin-bottom:15px;
-}
-
-.success p{
-font-size:1.1rem;
-line-height:1.7;
-}
-
-.hearts{
-position:absolute;
-font-size:24px;
-animation:float 7s linear infinite;
-opacity:.7;
-}
-
-@keyframes float{
-0%{
-transform:translateY(100vh);
+@keyframes floatUp{
+to{
+transform:translateY(-120vh);
 opacity:0;
 }
-100%{
-transform:translateY(-120px);
-opacity:1;
-}
 }
 
-.footer{
-margin-top:25px;
-font-style:italic;
-color:#555;
-}
-
-@media(max-width:600px){
+@media(max-width:768px){
 
 h1{
 font-size:2rem;
 }
 
-.question{
-font-size:1.5rem;
+.hero-gif{
+width:220px;
 }
 
-.photo{
-width:220px;
-height:280px;
+.gallery img{
+width:130px;
+height:170px;
 }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- SCREEN 1 -->
+
+<div id="screen1" class="screen">
+
 <div class="card">
 
 <h1>Arpita ❤️</h1>
 
-<p class="subtitle">
-From the moment you came into my life,
-you made ordinary days feel special.
+<img
+class="hero-gif"
+src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif"
+alt="Love GIF">
 
-Your smile brightens my darkest moments,
-and your presence makes everything better.
+<p>
 
-Today, I want to ask you something from my heart...
+Dear Arpita ❤️,
+
+From the moment you entered my life,
+you made ordinary moments feel extraordinary.
+
+Your smile brightens my day,
+your presence brings peace to my heart,
+and every conversation with you becomes a memory I cherish.
+
+Today I want to ask you something that comes straight from my heart...
+
 </p>
 
-<!-- Replace photo.jpg with your image -->
-<img src="photo.jpg" class="photo" alt="Memory">
-
-<div class="question">
-Will You Be My Girlfriend? 💖
-</div>
+<h2>Will You Be My Girlfriend? 💖</h2>
 
 <div class="buttons">
-<button id="yesBtn" onclick="showSuccess()">Yes 💕</button>
+
+<button id="yesBtn">Yes 💕</button>
+
 <button id="noBtn">No 🙈</button>
+
 </div>
 
-<div class="footer">
+<div class="quote">
 "You are my today and all of my tomorrows." ❤️
 </div>
 
 </div>
 
-<div class="success" id="successBox">
-<h2>🎉 Yay! You Said YES! 🎉</h2>
+</div>
+
+<!-- SCREEN 2 -->
+
+<div id="screen2" class="screen hidden">
+
+<div class="card">
+
+<h1>🎉 You Said YES! 🎉</h1>
+
+<img
+class="hero-gif"
+src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif"
+alt="Celebrate">
 
 <p>
-You just made me the happiest person alive ❤️<br><br>
 
-Thank you for being part of my life.
-I promise to cherish every moment we create together.
-💖
+You just made me the happiest person alive ❤️
+
+Thank you for being such a beautiful part of my life.
+
+I promise to cherish every smile,
+every memory,
+and every moment we create together.
+
+❤️ Forever Starts Here ❤️
+
 </p>
 
-<br>
+<div class="gallery">
 
-<h3>❤️ Forever Starts Here ❤️</h3>
+<img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?w=600">
+
+<img src="https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600">
+
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600">
+
+</div>
+
+</div>
+
 </div>
 
 <script>
 
+const yesBtn=document.getElementById("yesBtn");
 const noBtn=document.getElementById("noBtn");
 
-function moveButton(){
+yesBtn.addEventListener("click",()=>{
 
-const maxX=window.innerWidth-150;
-const maxY=window.innerHeight-100;
+document.getElementById("screen1").classList.add("hidden");
 
-const randomX=Math.random()*maxX;
-const randomY=Math.random()*maxY;
+setTimeout(()=>{
+document.getElementById("screen2").classList.remove("hidden");
+},500);
 
-noBtn.style.left=randomX+"px";
-noBtn.style.top=randomY+"px";
+for(let i=0;i<150;i++){
+setTimeout(createHeart,i*30);
 }
 
-noBtn.addEventListener("mouseover",moveButton);
-noBtn.addEventListener("click",moveButton);
+});
 
-function showSuccess(){
+function moveNo(){
 
-document.getElementById("successBox").style.display="block";
+const parent=document.querySelector(".buttons");
 
-for(let i=0;i<100;i++){
-createHeart();
+const maxX=parent.offsetWidth-120;
+const maxY=70;
+
+const x=Math.random()*maxX;
+const y=Math.random()*maxY;
+
+noBtn.style.left=x+"px";
+noBtn.style.top=y+"px";
 }
-}
+
+noBtn.addEventListener("mouseenter",moveNo);
+noBtn.addEventListener("click",moveNo);
 
 function createHeart(){
 
 const heart=document.createElement("div");
 
-heart.classList.add("hearts");
+heart.className="heart";
 
-heart.innerHTML=[
-"❤️","💖","💕","💗","💘"
-][Math.floor(Math.random()*5)];
+const emojis=["❤️","💖","💕","💗","💘"];
+
+heart.innerHTML=
+emojis[Math.floor(Math.random()*emojis.length)];
 
 heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(20+Math.random()*25)+"px";
-heart.style.animationDuration=(4+Math.random()*4)+"s";
+
+heart.style.animationDuration=
+(4+Math.random()*4)+"s";
+
+heart.style.fontSize=
+(20+Math.random()*30)+"px";
 
 document.body.appendChild(heart);
 
 setTimeout(()=>{
 heart.remove();
 },8000);
+
 }
 
-setInterval(createHeart,400);
+setInterval(createHeart,600);
 
 </script>
 
 </body>
 </html>
+```
